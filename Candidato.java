@@ -5,4 +5,6 @@ public class Candidato {
     private int numero;
 
     // Construtor, getters e setters
+
+    //teste
 }
