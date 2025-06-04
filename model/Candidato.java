@@ -1,19 +1,17 @@
 package model;
 
 public class Candidato {
-    private int id;
+    private String id;
     private String nome;
     private String partido;
-    private int numero;
 
-    public Candidato(int id, String nome, String partido, int numero) {
+    public Candidato(String id, String nome, String partido) {
         this.id = id;
         this.nome = nome;
         this.partido = partido;
-        this.numero = numero;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -25,14 +23,6 @@ public class Candidato {
         return partido;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -41,13 +31,8 @@ public class Candidato {
         this.partido = partido;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
     @Override
     public String toString() {
-        return String.format("Candidato{id=%d, nome='%s', partido='%s', numero=%d}",
-                id, nome, partido, numero);
+        return "[" + id + "] " + nome + " - " + partido;
     }
 }
