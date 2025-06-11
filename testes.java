@@ -53,11 +53,13 @@ public class testes {
 
     @Test
     public void testAutenticacaoValida() {
-        Utilizador user = authService.autenticar("admin1", "1234");
-        assertNotNull(user);
-        assertTrue(user instanceof Administrador);
 
-        user = authService.autenticar("e1", "pass1");
+        // erro esta a ir buscar o id pra autenticar em vez de ir buscar o username
+        Utilizador user1 = authService.autenticar("admin", "1234");
+        assertNotNull(user1);
+        assertTrue(user1 instanceof Administrador);
+
+        Utilizador user = authService.autenticar("joao", "pass1");
         admin.encerrarVotacao(votacaoService);
 
         assertNotNull(user);
