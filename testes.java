@@ -58,6 +58,8 @@ public class testes {
         assertTrue(user instanceof Administrador);
 
         user = authService.autenticar("e1", "pass1");
+        admin.encerrarVotacao(votacaoService);
+
         assertNotNull(user);
         assertTrue(user instanceof Eleitor);
     }
@@ -92,6 +94,7 @@ public class testes {
         boolean voto1 = eleitorService.votar(eleitor1.getId(), candidato1.getId(), votacaoService);
         assertTrue(voto1);
         assertTrue(eleitor1.jaVotou());
+        votacaoService.encerrarVotacao(); // ENCERRAR ANTES DE OBTER RESULTADOS
 
         // Verificar votos no resultado
         ResultadoVotacao resultado = admin.obterResultados(votacaoService);
@@ -124,6 +127,7 @@ public class testes {
         eleitorService.votar(eleitor1.getId(), candidato1.getId(), votacaoService);
         eleitorService.votar(eleitor2.getId(), candidato2.getId(), votacaoService);
 
+        votacaoService.encerrarVotacao();
         ResultadoVotacao resultado = admin.obterResultados(votacaoService);
         assertEquals(2, resultado.getTotalVotos());
 
